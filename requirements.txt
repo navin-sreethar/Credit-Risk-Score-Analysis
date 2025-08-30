@@ -1,0 +1,13 @@
+pandas
+scikit-learn
+joblib
+lightgbm
+matplotlib
+seaborn
+scipy
+fastapi
+uvicorn
+pydantic
+python-multipart
+aiofiles
+jinja2
