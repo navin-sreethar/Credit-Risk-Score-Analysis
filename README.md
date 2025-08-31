@@ -37,8 +37,8 @@ The application follows a client-server architecture:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/credit-risk-score-analysis.git
-cd credit-risk-score-analysis
+git clone https://github.com/navin-sreethar/Credit-Risk-Score-Analysis.git
+cd Credit-Risk-Score-Analysis
 ```
 
 2. Create and activate a virtual environment:
@@ -57,12 +57,21 @@ pip install -r requirements.txt
    - Rename the downloaded file to `credit_data.csv` and place it in the `data/` directory
    - Alternatively, you can use any credit default dataset with similar features, just ensure the column names match those used in the application
 
-5. Start the application:
+5. Generate the model files:
+   - The model files are not included in the repository due to size constraints
+   - Run the training script to generate the model files:
+   ```bash
+   python train_model.py
+   ```
+   - This will create `credit_model.pkl` and `scaler.pkl` in the `models/` directory
+   - Alternatively, if you have access to pre-trained model files, place them directly in the `models/` directory
+
+6. Start the application:
 ```bash
 python main.py
 ```
 
-5. Open your browser and navigate to:
+7. Open your browser and navigate to:
 ```
 http://localhost:8000
 ```
@@ -85,6 +94,18 @@ http://localhost:8000
    - Loan approval probabilities and likely interest rates
    - Personalized tips to improve your score
 
+## Dataset
+
+The model is trained using the "Default of Credit Card Clients" dataset from the UCI Machine Learning Repository. This dataset contains information on default payments, demographic factors, credit data, history of payment, and bill statements of credit card clients in Taiwan from April 2005 to September 2005.
+
+- **Source**: UCI Machine Learning Repository
+- **URL**: [Default of Credit Card Clients Dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
+- **Features**: 23 attributes including payment history, bill amounts, and payment amounts
+- **Size**: ~30,000 instances
+- **Format**: CSV file (not included in the repository due to size constraints)
+
+To run this application, you need to download the dataset from the link above and place it in the `data/` directory as `credit_data.csv`. The training script will automatically preprocess the data and train the model.
+
 ## Machine Learning Model
 
 The credit risk prediction model is a Random Forest classifier trained on a dataset containing credit card default information. The model has the following characteristics:
@@ -99,17 +120,12 @@ The credit risk prediction model is a Random Forest classifier trained on a data
   - F1 Score: 75.1%
   - ROC AUC: 0.83
 
-### Dataset
+### Model Files
+Due to GitHub file size constraints, the following model files are not included in the repository:
+- `credit_model.pkl`: The trained Random Forest model (approximately 7 MB)
+- `scaler.pkl`: The feature scaler for data preprocessing (approximately 2 MB)
 
-The model is trained using the "Default of Credit Card Clients" dataset from the UCI Machine Learning Repository. This dataset contains information on default payments, demographic factors, credit data, history of payment, and bill statements of credit card clients in Taiwan from April 2005 to September 2005.
-
-- **Source**: UCI Machine Learning Repository
-- **URL**: [Default of Credit Card Clients Dataset](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
-- **Features**: 23 attributes including payment history, bill amounts, and payment amounts
-- **Size**: ~30,000 instances
-- **Format**: CSV file (not included in the repository due to size constraints)
-
-To run this application, you need to download the dataset from the link above and place it in the `data/` directory as `credit_data.csv`. The training script will automatically preprocess the data and train the model.
+You can generate these files by running `train_model.py` after downloading the dataset.
 
 ### Feature Engineering
 
